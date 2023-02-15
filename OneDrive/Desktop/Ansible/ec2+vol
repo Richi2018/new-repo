@@ -1,0 +1,13 @@
+---
+- name: play for creating an aws instance
+  amazon.aws.ec2:
+    keypair: "{{ keypair }}"
+    image: "{{ image }}"
+    wait: true
+    count: 1
+  register: ec2
+- amazon.aws.ec2_vol:
+    instance: "{{ item.id }}"
+    volume_size: 5
+  loop: "{{ ec2.instances }}"
+  register: ec2_vol

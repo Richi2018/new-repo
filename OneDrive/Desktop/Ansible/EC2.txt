@@ -1,0 +1,13 @@
+---
+ - name: play for creating an aws ec2 instance
+   hosts: localhost
+   connection: local
+   tasks:
+   - name: creation of ec2-instance using ec2 module
+     ec2:
+      instance_type: t2.micro
+      image: ami-01a4f99c4ac11b03c
+      region: ap-south-1
+      key_name: practice_key
+      aws_accesskey: AKIAZUW74QHNN54ZR4XT
+      aws_security_key: 6gf2xqFdI1KUU62TV3uhUlnHzLqIzZ3mjkqKkYK+
